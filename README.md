@@ -1,71 +1,29 @@
-# vscode-pipe-run-notebooks README
+# vscode-pipe-run-notebook README
 
-This is the README for your extension "vscode-pipe-run-notebooks". After writing up a brief description, we recommend including the following sections.
+Pipe Run allows you to perform [`Axios`](https://www.npmjs.com/package/axios) requests / [`Shell`](https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback) commands / [`JMESPath`](https://jmespath.org/) extractor / [`JsonCreator`](https://www.npmjs.com/package/json-creator) (a dummy json data creator also written by myself) in a notebook environment in a pipeline style.
 
-## Features
+Your can define your daily repeatly work (ex. fetch some data by RESTful API calls, then extract and convert data formats and finally post them somewhere else) in cells and view the intermediate results step by step.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Hope this tool will make your life a little easier and happier.
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
+Install the extension and create a notebook file ending with `.piperun`
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Add some code cells and select the language mode by clicking the right bottom of each cell.
 
-## Requirements
+The current suported languages and their documents are below:
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Axios requests
+  - More information at https://www.npmjs.com/package/axios
+- Shell commands
+  - More information at https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback
+- JMESPath extractor
+  - More information at https://jmespath.org/
+- JsonCreator
+  - A dummy json data creator also written by myself
+  - More information at https://www.npmjs.com/package/json-creator
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-- `myExtension.enable`: Enable/disable this extension.
-- `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-- [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-- Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-- Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-- Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-- [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-- [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Currently this extension needs no settings.

@@ -1,21 +1,51 @@
 {
-  "name": "vscode-pipe-run-notebooks",
-  "displayName": "vscode-pipe-run-notebooks",
-  "description": "Pipe Run allows you to write and execute Shell commands / JavaScripts / JMESPath and so on in a notebook environment, and makes your repeatly work in a pipeline. The visualizability of each step's result make you life easier.",
+  "name": "vscode-pipe-run-notebook",
+  "displayName": "Pipe Run Notebook",
+  "description": "Pipe Run allows you to perform Axios requests / Shell commands / JMESPath / JsonCreator in a notebook environment in a pipeline style.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.93.0"
   },
   "categories": [
-    "Other"
+    "Notebooks"
   ],
-  "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
+    "languages": [
       {
-        "command": "vscode-pipe-run-notebooks.helloWorld",
-        "title": "Hello World"
+        "id": "axios",
+        "aliases": [
+          "Axios"
+        ]
+      },
+      {
+        "id": "jmespath",
+        "aliases": [
+          "JMESPath"
+        ]
+      },
+      {
+        "id": "json-creator",
+        "aliases": [
+          "JsonCreator"
+        ]
+      },
+      {
+        "id": "shell",
+        "aliases": [
+          "Shell"
+        ]
+      }
+    ],
+    "notebooks": [
+      {
+        "type": "pipe-run-notebook",
+        "displayName": "Pipe Run Notebook",
+        "selector": [
+          {
+            "filenamePattern": "*.piperun"
+          }
+        ]
       }
     ]
   },
@@ -34,16 +64,21 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.93.0",
     "@types/mocha": "^10.0.7",
     "@types/node": "20.x",
+    "@types/vscode": "^1.93.0",
     "@typescript-eslint/eslint-plugin": "^8.3.0",
     "@typescript-eslint/parser": "^8.3.0",
-    "eslint": "^9.9.1",
-    "esbuild": "^0.23.1",
-    "npm-run-all": "^4.1.5",
-    "typescript": "^5.5.4",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "@vscode/test-electron": "^2.4.1",
+    "esbuild": "^0.23.1",
+    "eslint": "^9.9.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.5.4"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "jmespath": "^0.16.0",
+    "json-creator": "^0.0.5"
   }
 }

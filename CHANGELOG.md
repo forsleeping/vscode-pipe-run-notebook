@@ -1,9 +1,13 @@
 # Change Log
 
-All notable changes to the "vscode-pipe-run-notebooks" extension will be documented in this file.
+All notable changes to the "vscode-pipe-run-notebook" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [0.0.1] 2024-10-07
 
-## [Unreleased]
+### Added
 
-- Initial release
+- support the following basic features running in notebook cells
+  - Axios
+  - JMESPath
+  - JsonCreator
+  - Shell

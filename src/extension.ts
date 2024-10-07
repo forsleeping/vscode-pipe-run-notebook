@@ -1,32 +1,33 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from "vscode";
+import { NotebookKernel } from "./notebookKernel";
+import { NotebookSerializer } from "./notebookSerializer";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
-  // Use the console to output diagnostic information (console.log) and errors (console.error)
-  // This line of code will only be executed once when your extension is activated
-  console.log(
-    'Congratulations, your extension "vscode-pipe-run-notebooks" is now active!'
-  );
-
-  // The command has been defined in the package.json file
-  // Now provide the implementation of the command with registerCommand
-  // The commandId parameter must match the command field in package.json
-  const disposable = vscode.commands.registerCommand(
-    "vscode-pipe-run-notebooks.helloWorld",
-    () => {
-      // The code you place here will be executed every time your command is executed
-      // Display a message box to the user
-      vscode.window.showInformationMessage(
-        "Hello World from vscode-pipe-run-notebooks!"
-      );
-    }
-  );
-
-  context.subscriptions.push(disposable);
+interface NotebookDef {
+  type: string;
 }
 
-// This method is called when your extension is deactivated
+interface PackageJsonDef {
+  name: string;
+  displayName: string;
+  description: string;
+  contributes: {
+    notebooks: NotebookDef[];
+  };
+}
+
+export function activate(context: vscode.ExtensionContext) {
+  const packageJSONDef = <PackageJsonDef>context.extension.packageJSON;
+  const [notebookDef, ..._] = packageJSONDef.contributes.notebooks;
+  const serializer = vscode.workspace.registerNotebookSerializer(
+    notebookDef.type,
+    new NotebookSerializer()
+  );
+  const kernel = new NotebookKernel(
+    notebookDef.type,
+    packageJSONDef.displayName,
+    packageJSONDef.description
+  );
+  context.subscriptions.push(serializer, kernel);
+}
+
 export function deactivate() {}

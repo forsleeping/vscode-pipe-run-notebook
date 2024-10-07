@@ -1,0 +1,27 @@
+[
+  {
+    "kind": 2,
+    "value": "{\n  \"method\": \"get\",\n  \"url\": \"https://petstore.swagger.io/v2/pet/findByStatus?status=pending\",\n  \"responseType\": \"application/json\"\n}",
+    "languageId": "axios"
+  },
+  {
+    "kind": 2,
+    "value": "{ result: data[].tags[].name }",
+    "languageId": "jmespath"
+  },
+  {
+    "kind": 2,
+    "value": "{\n  \"dummy\": [{ \"4..8\": \"${FAKE(`{{hacker.phrase}}`)}\" }],\n  \"random\": \"${CHOICE(_.result)}\"\n}",
+    "languageId": "json-creator"
+  },
+  {
+    "kind": 2,
+    "value": "dummy[0]",
+    "languageId": "jmespath"
+  },
+  {
+    "kind": 2,
+    "value": "ls -al",
+    "languageId": "shell"
+  }
+]
