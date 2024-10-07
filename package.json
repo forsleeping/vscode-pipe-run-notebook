@@ -6,6 +6,7 @@
   "repository": {
     "url": "https://github.com/forsleeping/vscode-pipe-run-notebook"
   },
+  "publisher": "wsysuper",
   "engines": {
     "vscode": "^1.93.0"
   },
